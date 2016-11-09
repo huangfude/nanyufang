@@ -1,21 +1,23 @@
- <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% 
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String commonPath = basePath + "_front/common";
+%>
 <html lang="ch" >
 <head>
-<title>Marisfrolg 伦敦时装周</title>
+<title>楠玉·生活坊</title>
 <meta charset="utf-8" />
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
 <meta HTTP-EQUIV="expires" CONTENT="0">
-<meta name="keywords" content="优雅，在彼此凝视的眼眸中，在闻香吟咏的诗词里……它默默无语，却在最美丽的年华里，以“时光”之名与你相遇，也因为你的优雅成就了你的梦。" />
-<meta name="description" content="优雅，在彼此凝视的眼眸中，在闻香吟咏的诗词里……它默默无语，却在最美丽的年华里，以“时光”之名与你相遇，也因为你的优雅成就了你的梦。" />
 <meta name="apple-touch-fullscreen" content="yes" />
 <meta name="format-detection" content="telephone=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta http-equiv="Expires" content="-1" />
 <meta http-equiv="pragram" content="no-cache" />
-<meta name="sharecontent" data-msg-img="http://www.lightapp.cn/userfiles/info/5/2014/07/53a97dde2178242832.png" data-msg-title="" data-msg-content="优雅，在彼此凝视的眼眸中，在闻香吟咏的诗词里……它默默无语，却在最美丽的年华里，以“时光”之名与你相遇，也因为你的优雅成就了你的梦。" data-msg-callBack="" data-line-img="http://www.lightapp.cn/userfiles/info/5/2014/07/53a97dde2178242832.png" data-line-title="" data-line-callBack=""/> <title>Marisfrolg 伦敦时装周</title>
-<script src=js/offline.js?1397525361></script> 
+<script src="<%=commonPath %>/js/offline.js"></script> 
 <script type="text/javascript">
 
 	if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
@@ -53,9 +55,10 @@
 	}
 
 	</script>
-<link rel="stylesheet" type="text/css" href="css/app.min.css?ver=3.9"/>
-<head>
+<link rel="stylesheet" type="text/css" href="<%=commonPath %>/css/app.min.css?ver=3.9"/>
+</head>
 <body class="app"  data-ad="true">
+
 <div id="app-loading" class="app-loading">
 <div class="cycleWrap">
 <span class="cycle cycle-1"></span>
@@ -69,56 +72,26 @@
 <span class="line line-3"></span>
 </div>
 </div>
+
 <header class="app-header">
 <a href="javascript:void(0);" class="u-globalAudio">
-<audio src="swf/1.mp3" autoplay="autoplay" loop="loop"></audio>
+<audio src="<%=commonPath %>/swf/1.mp3" autoplay="autoplay" loop="loop"></audio>
 </a>
 </header>
+
 <section class="app-content">
+
 <section class="page page-index z-current" data-plugin-type="info_front">
 <section class="page-content">
 <div class="m-animationBox m-animationCloudBg"></div>
-<img class="m-foregroundImg" src="images/53a93a5e17d79_c42828117176.png">
+<img class="m-foregroundImg" src="<%=commonPath %>/images/53a93a5e17d79_c42828117176.png">
 </section>
 </section>
-<section class="page page-teletext" data-plugin-type="info_list" style="background:url(images/appBg1.jpg);">
-<section class="page-content">
-<ul class="m-cascadingTeletext">
-<li>
-<img src="images/53b5100d79b6542829117177.jpg"/>
-<div class="imgText">
-<p class="p1">
-<br />
-</p>
-</div>
-</li>
-<li>
-<img src="images/53b5101cdc64f42829117177.jpg"/>
-<div class="imgText">
-</div>
-</li>
-<li>
-<img src="images/53b5102728df142829117177.jpg"/>
-<div class="imgText">
-<p class="p1">
-<br />
-</p>
-</div>
-</li>
-<li>
-<img src="images/53b510319b83d42829117177.jpg"/>
-<div class="imgText">
-<p class="p1">
-<br />
-</p>
-</div>
-</li>
-</ul>
-<a href="javascript:void(0);" class="u-guidePrev z-move">prev</a>
-<a href="javascript:void(0);" class="u-guideNext z-move">next</a>
-</section>
-</section>
-<section class="page page-video" data-plugin-type="video_brand" style="background-image: url(images/53a9385d0894742830117178.jpg);">
+
+<%@ include file="page/1.jsp" %>
+
+
+<section class="page page-video" data-plugin-type="video_brand" style="background-image: url(<%=commonPath %>/images/53a9385d0894742830117178.jpg);">
 <section class="page-content">
 <a href="javascript:void(0);" class="m-btnPlay a-bouncein">
 <i></i>
@@ -129,27 +102,29 @@
 </div>
 </section>
 </section>
-<section class="page page-link" data-plugin-type="info_link" style="background-image: url(images/53b51d842899b42837117179.jpg);">
+
+<section class="page page-link" data-plugin-type="info_link" style="background-image: url(<%=commonPath %>/images/53b51d842899b42837117179.jpg);">
 <section class="page-content">
 </section>
 </section>
-<section class="page page-link" data-plugin-type="info_link" style="background-image: url(images/53b53170a164a42835117180.jpg);">
+
+<section class="page page-link" data-plugin-type="info_link" style="background-image: url(<%=commonPath %>/images/53b53170a164a42835117180.jpg);">
 <section class="page-content">
 <div class="m-link">
 <a href="weixin:share" class="imgLink">
-<img src="images/53b51ab39ab5a42835117180.png"/>
+<img src="<%=commonPath %>/images/53b51ab39ab5a42835117180.png"/>
 </a>
 <div class="u-maskLayer m-weixinShareLayer z-hide">
-<img src="images/53b51697bc856.jpg">
+<img src="<%=commonPath %>/images/53b51697bc856.jpg">
 </div>
 </div>
 </section>
 </section>
-<section class="page page-link" data-plugin-type="info_link" style="background-image: url(images/53b531805aa1242836117181.jpg);">
+<section class="page page-link" data-plugin-type="info_link" style="background-image: url(<%=commonPath %>/images/53b531805aa1242836117181.jpg);">
 <section class="page-content">
 <div class="m-link">
 <a href="weixin:share" class="imgLink">
-<img src="images/53b51ac2cb1f542836117181.png"/>
+<img src="<%=commonPath %>/images/53b51ac2cb1f542836117181.png"/>
 </a>
 <div class="u-maskLayer m-weixinShareLayer z-hide">
 <img src="images/53b519d9c813d.jpg">
@@ -157,19 +132,19 @@
 </div>
 </section>
 </section>
-<section class="page page-link" data-plugin-type="info_link" style="background-image: url(images/53b531920c92542838117182.jpg);">
+<section class="page page-link" data-plugin-type="info_link" style="background-image: url(<%=commonPath %>/images/53b531920c92542838117182.jpg);">
 <section class="page-content">
 <div class="m-link">
 <a href="weixin:share" class="imgLink">
-<img src="images/53b5207f3cfd242838117182.png"/>
+<img src="<%=commonPath %>/images/53b5207f3cfd242838117182.png"/>
 </a>
 <div class="u-maskLayer m-weixinShareLayer z-hide">
-<img src="images/53b5208c69d90.jpg">
+<img src="<%=commonPath %>/images/53b5208c69d90.jpg">
 </div>
 </div>
 </section>
 </section>
-<section class="page page-map" data-plugin-type="multistore_address" style="background-image: url(images/53a971f82ad6d42831117183.jpg); background-size: auto;">
+<section class="page page-map" data-plugin-type="multistore_address" style="background-image: url(<%=commonPath %>/images/53a971f82ad6d42831117183.jpg); background-size: auto;">
 <section class="page-content">
 <div class="m-distributedPoints">
 <ul class="pointList">
@@ -183,112 +158,84 @@
 <div class="u-yunlaiMap z-hide"></div>
 </section>
 </section>
-<section class="page page-link" data-plugin-type="info_link" style="background-image: url(images/53a97da63ba9842833117184.jpg);">
+<section class="page page-link" data-plugin-type="info_link" style="background-image: url(<%=commonPath %>/images/53a97da63ba9842833117184.jpg);">
 <section class="page-content">
 <div class="m-link">
 <a href="weixin:share" class="imgLink">
-<img src="images/53a97dbac627942833117184.png"/>
+<img src="<%=commonPath %>/images/53a97dbac627942833117184.png"/>
 </a>
 <div class="u-maskLayer m-weixinShareLayer z-hide">
-<img src="images/weixin-share-guide.png">
+<img src="<%=commonPath %>/images/weixin-share-guide.png">
 </div>
 </div>
 </section>
 </section>
-<section class="page page-link" data-plugin-type="info_link" style="background-image: url(images/53b542b6079eb42834117185.jpg);">
+<section class="page page-link" data-plugin-type="info_link" style="background-image: url(<%=commonPath %>/images/53b542b6079eb42834117185.jpg);">
 <section class="page-content">
 <div class="m-link">
 <a href="tel:4000168906" class="imgLink">
-<img src="images/53aabd0b6d89342834117185.png"/>
+<img src="<%=commonPath %>/images/53aabd0b6d89342834117185.png"/>
 </a>
 </div>
 </section>
 </section>
 </section>
+
 <footer class="app-footer">
 </footer>
-<input type="hidden" value="images/53a97dde2178242832117186.png" data-share-pic>
-<script type="text/javascript" src="js/init.min.js?ver=3.3"></script>
-<input type="hidden" id="app-logo" value="images/default.jpg" /><script type="text/javascript" src="js/new_wxshare.js?v=1416895369"></script><script type="text/javascript" src="js/bi_post_min.js"></script><script type="text/javascript">
+<input type="hidden" value="<%=commonPath %>/images/53a97dde2178242832117186.png" data-share-pic>
+<script type="text/javascript" src="<%=commonPath %>/js/init.min.js?ver=3.3"></script>
+<input type="hidden" id="app-logo" value="<%=commonPath %>/images/default.jpg" />
+<script type="text/javascript" src="<%=commonPath %>/js/new_wxshare.js?v=1416895369"></script>
+<script type="text/javascript" src="<%=commonPath %>/js/bi_post_min.js"></script>
+<script type="text/javascript">
 
 	window.onload = function() {
-
+		
 		$audio = $("audio");
-
 		if ($audio.length>0) {
-
 			$audio.attr("src", $audio.data("src"));
-
 			$audio.parent("a").prepend('<i class="icon-music"></i>');
-
 		}
 
 	};
 
 	bi.ready(function(){
-
+		
 		var link = window.location.href;
-
-
-
 		var uid = bi.util.getUID();
-
 		var sf = '';
 
-
-
 		var activity_id = link.match(/\/([0-9]+)\?/)[1];
-
 		var sfstr = link.match(/\?sf=([^&]+)[&]?/);
 
 		if(sfstr){
-
 			sf = sfstr[1];
-
 			var newlink = link.replace(/(\?)sf=[^&]+[&]?/,'$1');
-
 		}else{
-
 			var newlink = link;
-
 		}
 
 	    var	linkArr = newlink.split('?');
-
-
-
 	    var shareLink = linkArr[0]+'?sf='+uid+'&'+linkArr[1];
-
 	    var biLink = linkArr[0]+'?uid='+uid+'&'+linkArr[1];
 
-
-
     	bi.weixin.share.all({
-
 			link:shareLink
-
 		});
 
 		
 
 		bi.weixin.ready(function(){
-
 			bi.weixin.onShare(function (e) {
-
 				bi.push(5, 'link', biLink);
-
 				bi.push(5, 'activity_id', activity_id);
-
 				if(sf){
-
 					bi.push(5, 'sf', sf);
-
 				}
 
 				bi.push(5, 'type', 'shareTimeline');
-
 				bi.push(5, 'stime', bi.util.getSTime());
-
 				bi.push(5, 'uid', uid);
 
 				//alert(JSON.stringify(bi.get(5)));			
@@ -300,69 +247,42 @@
 
 
 			bi.weixin.onShare(function (e) {
-
 				bi.push(5, 'link', biLink);
-
 				bi.push(5, 'activity_id', activity_id);
-
 				if(sf){
-
 					bi.push(5, 'sf', sf);
-
 				}
 
 				bi.push(5, 'type', 'sendAppMessage');
-
 				bi.push(5, 'stime', bi.util.getSTime());
-
 				bi.push(5, 'uid', uid);
 
 				//alert(JSON.stringify(bi.get(5)));
-
 				bi.post();
 
 			}, 'sendAppMessage');			
 
 		});
 
-		
-
 		var time = new Date;
-
 		var start = time.getTime();
-
 		var prevPage = 1;
 
 	    $('.page').on('current', function(){
-
 			var now = new Date;
-
 			var end = now.getTime();
-
 			var rt = end - start;
 
-
-
 	        bi.push(4, 'link' ,link);
-
 	        bi.push(4, 'pvid' , "v1hpecoi5fdq28vu1ulgv9afk5");
-
 	        bi.push(4, 'stime', start);
-
 	        bi.push(4, 'rt' ,rt);
-
 	        bi.push(4, 'pnum', prevPage);
-
 	        bi.push(4, 'pstime', start);
-
 	        bi.push(4, 'activity_id', activity_id);
-
 	        bi.post();
 
-
-
 			prevPage = $('.page').filter('.z-current').index()+1;
-
 			start = end;
 
 	   });
