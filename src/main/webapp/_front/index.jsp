@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta http-equiv="Expires" content="-1" />
 <meta http-equiv="pragram" content="no-cache" />
-<script src="<%=commonPath %>/js/offline.js"></script> 
+
 <script type="text/javascript">
 
 	if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
@@ -55,7 +55,9 @@
 	}
 
 	</script>
+	
 <link rel="stylesheet" type="text/css" href="<%=commonPath %>/css/app.min.css?ver=3.9"/>
+
 </head>
 <body class="app"  data-ad="true">
 
@@ -91,18 +93,6 @@
 <%@ include file="page/1.jsp" %>
 
 
-<section class="page page-video" data-plugin-type="video_brand" style="background-image: url(<%=commonPath %>/images/53a9385d0894742830117178.jpg);">
-<section class="page-content">
-<a href="javascript:void(0);" class="m-btnPlay a-bouncein">
-<i></i>
-<div></div>
-</a>
-<div class="u-maskLayer m-youkuVideoLayer z-hide">
-<div class="m-youkuVideo" data-devid="XNzExMDYyMzI4" data-src="http://v.youku.com/v_show/id_XNzExMDYyMzI4.html"></div>
-</div>
-</section>
-</section>
-
 <section class="page page-link" data-plugin-type="info_link" style="background-image: url(<%=commonPath %>/images/53b51d842899b42837117179.jpg);">
 <section class="page-content">
 </section>
@@ -127,7 +117,7 @@
 <img src="<%=commonPath %>/images/53b51ac2cb1f542836117181.png"/>
 </a>
 <div class="u-maskLayer m-weixinShareLayer z-hide">
-<img src="images/53b519d9c813d.jpg">
+<img src="<%=commonPath %>/images/53b519d9c813d.jpg">
 </div>
 </div>
 </section>
@@ -170,24 +160,42 @@
 </div>
 </section>
 </section>
-<section class="page page-link" data-plugin-type="info_link" style="background-image: url(<%=commonPath %>/images/53b542b6079eb42834117185.jpg);">
+
+<section class="page page-link" data-plugin-type="info_link" style="background-image: url(<%=commonPath %>/images/appBg2.jpg);">
 <section class="page-content">
 <div class="m-link">
-<a href="tel:4000168906" class="imgLink">
-<img src="<%=commonPath %>/images/53aabd0b6d89342834117185.png"/>
-</a>
+<table>
+	<tr>
+		<th>姓名：</th>
+		<td>
+		<input name="name" id="name" />
+		</td>
+	</tr>
+	<tr>
+		<th>电话：</th>
+		<td>
+		<input name="tel" id="tel" />
+		</td>
+	</tr>
+	<tr>
+		<th>预约时间：</th>
+		<td>
+		<input name="orderTime" id="orderTime" />
+		</td>
+	</tr>
+</table>
+
 </div>
 </section>
 </section>
+
 </section>
 
 <footer class="app-footer">
 </footer>
 <input type="hidden" value="<%=commonPath %>/images/53a97dde2178242832117186.png" data-share-pic>
+ 
 <script type="text/javascript" src="<%=commonPath %>/js/init.min.js?ver=3.3"></script>
-<input type="hidden" id="app-logo" value="<%=commonPath %>/images/default.jpg" />
-<script type="text/javascript" src="<%=commonPath %>/js/new_wxshare.js?v=1416895369"></script>
-<script type="text/javascript" src="<%=commonPath %>/js/bi_post_min.js"></script>
 <script type="text/javascript">
 
 	window.onload = function() {
@@ -199,95 +207,6 @@
 		}
 
 	};
-
-	bi.ready(function(){
-		
-		var link = window.location.href;
-		var uid = bi.util.getUID();
-		var sf = '';
-
-		var activity_id = link.match(/\/([0-9]+)\?/)[1];
-		var sfstr = link.match(/\?sf=([^&]+)[&]?/);
-
-		if(sfstr){
-			sf = sfstr[1];
-			var newlink = link.replace(/(\?)sf=[^&]+[&]?/,'$1');
-		}else{
-			var newlink = link;
-		}
-
-	    var	linkArr = newlink.split('?');
-	    var shareLink = linkArr[0]+'?sf='+uid+'&'+linkArr[1];
-	    var biLink = linkArr[0]+'?uid='+uid+'&'+linkArr[1];
-
-    	bi.weixin.share.all({
-			link:shareLink
-		});
-
-		
-
-		bi.weixin.ready(function(){
-			bi.weixin.onShare(function (e) {
-				bi.push(5, 'link', biLink);
-				bi.push(5, 'activity_id', activity_id);
-				if(sf){
-					bi.push(5, 'sf', sf);
-				}
-
-				bi.push(5, 'type', 'shareTimeline');
-				bi.push(5, 'stime', bi.util.getSTime());
-				bi.push(5, 'uid', uid);
-
-				//alert(JSON.stringify(bi.get(5)));			
-
-				bi.post();
-
-			}, 'shareTimeline');
-
-
-
-			bi.weixin.onShare(function (e) {
-				bi.push(5, 'link', biLink);
-				bi.push(5, 'activity_id', activity_id);
-				if(sf){
-					bi.push(5, 'sf', sf);
-				}
-
-				bi.push(5, 'type', 'sendAppMessage');
-				bi.push(5, 'stime', bi.util.getSTime());
-				bi.push(5, 'uid', uid);
-
-				//alert(JSON.stringify(bi.get(5)));
-				bi.post();
-
-			}, 'sendAppMessage');			
-
-		});
-
-		var time = new Date;
-		var start = time.getTime();
-		var prevPage = 1;
-
-	    $('.page').on('current', function(){
-			var now = new Date;
-			var end = now.getTime();
-			var rt = end - start;
-
-	        bi.push(4, 'link' ,link);
-	        bi.push(4, 'pvid' , "v1hpecoi5fdq28vu1ulgv9afk5");
-	        bi.push(4, 'stime', start);
-	        bi.push(4, 'rt' ,rt);
-	        bi.push(4, 'pnum', prevPage);
-	        bi.push(4, 'pstime', start);
-	        bi.push(4, 'activity_id', activity_id);
-	        bi.post();
-
-			prevPage = $('.page').filter('.z-current').index()+1;
-			start = end;
-
-	   });
-
-	});
 
 	</script>
 </body>

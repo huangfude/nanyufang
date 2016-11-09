@@ -38,14 +38,3 @@ appId 与 appSecret 需要在微信平台上获取
 文档WIKI: http://git.oschina.net/jfinal/jfinal-weixin/wikis/home
 
 JavaDoc：http://www.dreamlu.net/jfinal-weixin/apidocs/
-
-## Maven仓库
-
-<mirrors>
-    <mirror>
-      <id>alimaven</id>
-      <name>aliyun maven</name>
-      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-      <mirrorOf>central</mirrorOf>        
-    </mirror>
-</mirrors>
