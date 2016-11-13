@@ -5,7 +5,7 @@ CREATE TABLE `t_order` (
   `NAME` varchar(100) DEFAULT NULL COMMENT '姓名',
   `TEL` varchar(20) DEFAULT NULL COMMENT '电话',
   `ORDER_TIME` datetime DEFAULT NULL COMMENT '预约时间',
-  `STATUS` int(2) DEFAULT NULL COMMENT '状态：1-有效；0-无效',
   `CREATE_TIME` datetime DEFAULT NULL,
+  `STATUS` int(2) DEFAULT NULL COMMENT '状态：1-有效；0-无效',
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='预约表';
