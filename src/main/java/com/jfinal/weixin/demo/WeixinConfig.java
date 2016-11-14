@@ -4,8 +4,6 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 package com.jfinal.weixin.demo;
-import com.alibaba.druid.filter.stat.StatFilter;
-import com.alibaba.druid.wall.WallFilter;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -15,6 +13,7 @@ import com.jfinal.config.Routes;
 import com.jfinal.core.JFinal;
 import com.jfinal.kit.PropKit;
 import com.jfinal.nyf.controller.OrderController;
+import com.jfinal.nyf.controller.admin.OrderCtr;
 import com.jfinal.nyf.entity.Order;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.activerecord.dialect.AnsiSqlDialect;
@@ -61,16 +60,19 @@ public class WeixinConfig extends JFinalConfig {
 		
 		me.add("/", IndexController.class,"_front");
 		me.add("/order", OrderController.class,"_front");
+		
+		//admin
+		me.add("/admin/order", OrderCtr.class,"admin/order");
 
 	}
 	
 	public void configPlugin(Plugins me) {
 		// 配置alibaba数据库连接池
-		DruidPlugin druidPlugin = new DruidPlugin(PropKit.get("db.url"), PropKit.get("db.username"), PropKit.get("db.password"),PropKit.get("db.driver"));
-		WallFilter wallFilter = new WallFilter();
-		wallFilter.setDbType(PropKit.get("db.type"));
-		druidPlugin.addFilter(wallFilter);
-		druidPlugin.addFilter(new StatFilter());
+		DruidPlugin druidPlugin = new DruidPlugin(PropKit.get("jdbcUrl"), PropKit.get("user"), PropKit.get("password"));
+//		WallFilter wallFilter = new WallFilter();
+//		wallFilter.setDbType(PropKit.get("db.type"));
+//		druidPlugin.addFilter(wallFilter);
+//		druidPlugin.addFilter(new StatFilter());
 		me.add(druidPlugin);
 		
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(druidPlugin);
