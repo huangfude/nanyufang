@@ -37,7 +37,7 @@
         <div class="weui-cell">
             <div class="weui-cell__hd"><label for="" class="weui-label">预约时间</label></div>
             <div class="weui-cell__bd">
-                <input class="weui-input" name="order.order_time" type="datetime-local" value="" placeholder=""/>
+                <input class="weui-input" name="order_time" type="datetime-local" value="" placeholder=""/>
             </div>
         </div>
         <div class="weui-cells__title">地址：广东省广州市天河区临江大道鹅公村酒楼</div>
